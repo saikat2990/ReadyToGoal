@@ -1,0 +1,15 @@
+D:\ReadyToGoal\leetCrack\leetCrack\obj\Debug\net6.0\leetCrack.csproj.AssemblyReference.cache
+D:\ReadyToGoal\leetCrack\leetCrack\obj\Debug\net6.0\leetCrack.GeneratedMSBuildEditorConfig.editorconfig
+D:\ReadyToGoal\leetCrack\leetCrack\obj\Debug\net6.0\leetCrack.AssemblyInfoInputs.cache
+D:\ReadyToGoal\leetCrack\leetCrack\obj\Debug\net6.0\leetCrack.AssemblyInfo.cs
+D:\ReadyToGoal\leetCrack\leetCrack\obj\Debug\net6.0\leetCrack.csproj.CoreCompileInputs.cache
+D:\ReadyToGoal\leetCrack\leetCrack\bin\Debug\net6.0\leetCrack.exe
+D:\ReadyToGoal\leetCrack\leetCrack\bin\Debug\net6.0\leetCrack.deps.json
+D:\ReadyToGoal\leetCrack\leetCrack\bin\Debug\net6.0\leetCrack.runtimeconfig.json
+D:\ReadyToGoal\leetCrack\leetCrack\bin\Debug\net6.0\leetCrack.dll
+D:\ReadyToGoal\leetCrack\leetCrack\bin\Debug\net6.0\leetCrack.pdb
+D:\ReadyToGoal\leetCrack\leetCrack\obj\Debug\net6.0\leetCrack.dll
+D:\ReadyToGoal\leetCrack\leetCrack\obj\Debug\net6.0\refint\leetCrack.dll
+D:\ReadyToGoal\leetCrack\leetCrack\obj\Debug\net6.0\leetCrack.pdb
+D:\ReadyToGoal\leetCrack\leetCrack\obj\Debug\net6.0\leetCrack.genruntimeconfig.cache
+D:\ReadyToGoal\leetCrack\leetCrack\obj\Debug\net6.0\ref\leetCrack.dll
