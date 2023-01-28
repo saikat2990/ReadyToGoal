@@ -5,18 +5,7 @@ namespace leetCrack
 {
     public class Program
     {
-        public class TreeNode
-        {
-            public int val;
-            public TreeNode left;
-            public TreeNode right;
-            public TreeNode(int val = 0, TreeNode left = null, TreeNode right = null)
-            {
-                this.val = val;
-                this.left = left;
-                this.right = right;
-            }
-        }
+       
 
         public static List<int> getAllValues(TreeNode node,List<int> allValues)
         {
@@ -28,7 +17,7 @@ namespace leetCrack
             return allValues;
         }
 
-        public static bool isItaddableOrNot(TreeNode node,int val,bool isBigCheck)
+        public static void isItaddableOrNot(TreeNode node,int val,bool isBigCheck, List<int> changeList)
         {
             List<int> allVals = new List<int>();
             
@@ -40,7 +29,7 @@ namespace leetCrack
                     allVals = getAllValues(node.right, allVals);
                     foreach (var childVal in allVals)
                     {
-                        if (childVal < val) return false;
+                        if (childVal <= val) changeList.Add(childVal);
                     }
                 }
 
@@ -52,59 +41,76 @@ namespace leetCrack
                     allVals = getAllValues(node.left, allVals);
                     foreach (var childVal in allVals)
                     {
-                        if (childVal > val) return false;
+                        if (childVal > val) changeList.Add(childVal);
                     }
                 }
               
             }
-            return true;
+           
         }
 
-        public static bool TraverseData(TreeNode node)
+        public static (int,int) TraverseData(TreeNode node, List<int> changeList)
         {
-
+            
             if (node.left != null)
             {
-                if (!isItaddableOrNot(node,node.val,false)) return false;
-                var tag = TraverseData(node.left);
-                if (!tag)
-                    return false;
+                isItaddableOrNot(node, node.val, false, changeList);
+                TraverseData(node.left, changeList);
             }
            
             if (node.right != null)
             {
-                if (!isItaddableOrNot(node, node.val, true)) return false;
-                var tag =  TraverseData(node.right);
-                if (!tag)
-                    return false;
+                isItaddableOrNot(node, node.val, true, changeList);
+                TraverseData(node.right, changeList);
+
             }
-            return true;
+            if (changeList.Count > 0)
+                return changeList.Count > 1 ? (changeList[0], changeList[1]) : (node.val, changeList[0]);
+            return (-1, -1);
         }
 
-        public static bool IsValidBST(TreeNode root)
+        private static void interChangeValue(TreeNode node,int parent,int child)
         {
-            if (root == null)
-                return false;
-            
-            return TraverseData(root);
+            Console.WriteLine(parent+" "+child+" "+node?.val);
+            if (node.val == parent)
+            {
+                node.val = child;
+            }
+            else if (node.val == child)
+            {
+                node.val = parent;
+            }
+            if(node.left!=null)interChangeValue(node.left,parent,child);
+            if(node.right!=null)interChangeValue(node.right,parent,child);
+        }
+
+        public static void IsValidBstData(TreeNode root)
+        {
+
+            List<int> changeList = new List<int>();
+            var data = TraverseData(root, changeList);
+          if (data.Item1 != -1 || data.Item2 != -1)
+              interChangeValue(root, data.Item1, data.Item2);
         }
 
         public static void Main(string[] args)
         {
-            var root = new TreeNode(5);
-            var n1 = new TreeNode(1);
-            var n2 = new TreeNode(4);
-            var n3 = new TreeNode(3);
-            var n4 = new TreeNode(6);
+            var root = new TreeNode(2);
+            var n1 = new TreeNode(3);
+            var n2 = new TreeNode(1);
+            //var n3 = new TreeNode(2);
+           // var n4 = new TreeNode(6);
 
             // setup children
             root.left = n1;
             root.right = n2;
-            n2.left = n3;
-            n2.right = n4;
+            //n2.left = n3;
+            //n2.right = n4;
 
-            var data = IsValidBST(root);
-            Console.WriteLine(data);
+            IsValidBstData(root);
+
+            IsValidBSTCHeck.IsValidBST2(root);
+            Console.WriteLine();
         }
     }
 }
