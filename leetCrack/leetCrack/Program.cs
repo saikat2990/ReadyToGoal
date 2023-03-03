@@ -30,13 +30,17 @@ namespace leetCrack
         }
     }
 
-    
+    public class characterData{
+        public int totalOccur { get; set; }
+        public int serial { get; set; }
+        public char ch { get; set; }
+    }
+
     public class Program
     {
-       
-        public static void Main(string[] args)
+       public static void Main(string[] args)
         {
-           
+            Console.WriteLine();
         }
 
 
